@@ -1,0 +1,35 @@
+<?php
+$_fp = fopen("php://stdin", "r");
+/* Enter your code here. Read input from STDIN. Print output to STDOUT */
+
+fscanf($_fp,"%d",$n);
+$counter = 0;
+
+while($counter < $n){
+  $odd = array();
+  fscanf($_fp,"%s",$s);
+
+  $length = strlen($s);
+  $oddLen =  (int) ($length/2);
+  
+  for ($i=0; $i < $length; $i++){
+    if ($i % 2 == 0){
+        echo $s[$i];
+    }else{
+        $odd[] = $s[$i];
+    }
+  }
+  
+  echo " ";
+
+  for ($j=0; $j < $oddLen; $j++){
+    echo $odd[$j];
+  }
+  
+  unset($odd);
+  echo "\n";
+  $counter++;
+}
+
+
+?>
