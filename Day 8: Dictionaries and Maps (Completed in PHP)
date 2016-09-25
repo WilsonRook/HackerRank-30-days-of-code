@@ -1,0 +1,28 @@
+<?php
+$_fp = fopen("php://stdin", "r");
+/* Enter your code here. Read input from STDIN. Print output to STDOUT */
+fscanf($_fp,"%d",$n);
+$counter=0;
+while($counter<$n){
+    $s = fgets($_fp);
+    $sa=explode(" ",$s);
+
+    $phoneBook[$sa[0]] =  $sa[1];
+    $counter++;
+}
+
+while(true){
+    fscanf($_fp,"%s",$q);
+
+    if (!isset($q)) break;
+    
+    if(isset($phoneBook[$q]))
+    {
+        echo $q."=".$phoneBook[$q];
+    }else{
+        echo "Not found\n";
+    }
+    
+    $q=null;
+}
+?>
