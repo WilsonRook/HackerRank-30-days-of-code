@@ -1,0 +1,16 @@
+<?php
+$_fp = fopen("php://stdin", "r");
+/* Enter your code here. Read input from STDIN. Print output to STDOUT */
+
+fscanf($_fp, "%d",$number);
+
+echo factorial($number);
+
+function factorial($n){
+    if ($n>1){
+        return $n * factorial($n-1);
+    } else {
+        return $n;
+    }   
+}
+?>
