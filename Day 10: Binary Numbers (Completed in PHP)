@@ -1,0 +1,31 @@
+<?php
+$handle = fopen ("php://stdin","r");
+fscanf($handle,"%d",$n);
+
+$binaryArr = array();
+$baseTen = $n;
+$counter = 0;
+$record = 0;
+
+for($digit=20; $digit>=0; $digit--){
+    if ($baseTen>=pow(2,$digit)){
+        $baseTen = $baseTen - pow(2,$digit);
+        $binaryArr[$digit] = 1;
+        
+        $counter++;
+
+        if ($counter>=$record){
+            $record = $counter;
+        }
+        
+    }else{
+    	$binaryArr[$digit] = 0;
+        if ($counter>=$record){
+            $record = $counter;
+        }
+        $counter = 0;
+    } 
+}
+echo $record;
+
+?>
