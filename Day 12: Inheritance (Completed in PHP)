@@ -1,0 +1,38 @@
+class Student extends person {
+    private $testScores;
+    
+    function __construct($first_name,$last_name,$identification,$scores){
+        parent::__construct($first_name,$last_name,$identification);
+        $this->testScores = $scores;
+    }
+    
+    function calculate(){
+        $sum=0;
+        $average=0;
+        $count = count($this->testScores);
+        
+        for($i=0;$i<$count;$i++){
+            $sum = $sum + $this->testScores[$i];
+        }
+        
+        $average = $sum/$count;
+        if (90<=$average && $average<=100){
+            return "O";
+        }
+        elseif (80<=$average && $average<90){
+            return "E";
+        }
+        elseif (70<=$average && $average<80){
+            return "A";
+        }
+        elseif (55<=$average && $average<70){
+            return "P";
+        }
+        elseif (40<=$average && $average<55){
+            return "D";
+        }
+        elseif ($average<40){
+            return "T";
+        }        
+    }
+}
