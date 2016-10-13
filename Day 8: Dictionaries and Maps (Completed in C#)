@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+class Solution {
+    static void Main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
+        
+        Dictionary<string, string> phoneBook = new Dictionary<string, string>();
+        
+        int numRecords = Int32.Parse(Console.ReadLine());
+        
+        string[] separators = {" "};
+        
+        for (int i = 0; i < numRecords; i++)
+        {
+            string input = Console.ReadLine();
+
+            string[] inputArr = input.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+
+            try 
+            {
+                phoneBook.Add(inputArr[0],inputArr[1]);
+            }
+            catch (ArgumentException) 
+            {
+                Console.WriteLine("An element with key {0} already exists", inputArr[0]);
+            }
+        }
+        
+        while (true)
+        {
+            string val = "";
+            string query = Console.ReadLine();
+            if (string.IsNullOrEmpty(query))
+                break;
+            else if (phoneBook.TryGetValue(query, out val))
+                Console.WriteLine("{0}={1}",query ,val);
+            else
+                Console.WriteLine("Not found");
+        } 
+
+    }
+}
