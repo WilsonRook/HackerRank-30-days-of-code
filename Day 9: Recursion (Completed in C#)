@@ -1,0 +1,19 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+class Solution {
+    static void Main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
+            int input = Int32.Parse(Console.ReadLine());
+            Console.WriteLine(Factorial(input));
+        }
+    
+        public static int Factorial(int num)
+        {
+            if (num == 1)
+                return num;
+            else
+                return num * Factorial(num - 1);
+        }
+    
+}
